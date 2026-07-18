@@ -1,0 +1,10 @@
+package br.com.cauesobral.screenmatch.model;
+
+import com.fasterxml.jackson.annotation.JsonAlias;
+
+public record DadosSerie(@JsonAlias ("Title") String titulo,
+                         @JsonAlias ("totalSeasons") Integer temporadas,
+                         @JsonAlias ("imdbRating") String avaliacao) {
+    //JsonAlias serve só para leitura de arquivos JSON
+    //JsonProperty serve tanto para serialização quando desserialização de arquivos JSON
+}
