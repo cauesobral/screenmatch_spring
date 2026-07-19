@@ -1,7 +1,9 @@
 package br.com.cauesobral.screenmatch.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true) //Ele vai pegar só os dados do DadosSerie
 public record DadosSerie(@JsonAlias ("Title") String titulo,
                          @JsonAlias ("totalSeasons") Integer temporadas,
                          @JsonAlias ("imdbRating") String avaliacao) {

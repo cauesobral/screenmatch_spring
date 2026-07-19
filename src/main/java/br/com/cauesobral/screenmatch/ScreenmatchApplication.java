@@ -1,6 +1,8 @@
 package br.com.cauesobral.screenmatch;
 
+import br.com.cauesobral.screenmatch.model.DadosSerie;
 import br.com.cauesobral.screenmatch.service.ConsumoApi;
+import br.com.cauesobral.screenmatch.service.ConverteDados;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,5 +26,9 @@ public class ScreenmatchApplication implements CommandLineRunner {
 		var consumoApi = new ConsumoApi();
 		var json = consumoApi.obterDados("http://www.omdbapi.com/?t="+titulo+"&apikey="+apikey+"&");
 		System.out.println(json);
+
+		var conversor = new ConverteDados();
+		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
+		System.out.println(dados);
 	}
 }
