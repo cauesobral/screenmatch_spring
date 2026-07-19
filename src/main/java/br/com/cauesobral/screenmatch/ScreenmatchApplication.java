@@ -1,5 +1,6 @@
 package br.com.cauesobral.screenmatch;
 
+import br.com.cauesobral.screenmatch.model.DadosEpisodio;
 import br.com.cauesobral.screenmatch.model.DadosSerie;
 import br.com.cauesobral.screenmatch.service.ConsumoApi;
 import br.com.cauesobral.screenmatch.service.ConverteDados;
@@ -23,12 +24,18 @@ public class ScreenmatchApplication implements CommandLineRunner {
 		System.out.println("Digite o titulo que você quer pesquisar: ");
 		var titulo = scanner.nextLine();
 
+		var endereco = "http://www.omdbapi.com/?t="+titulo+"&apikey="+apikey+"&";
+
 		var consumoApi = new ConsumoApi();
-		var json = consumoApi.obterDados("http://www.omdbapi.com/?t="+titulo+"&apikey="+apikey+"&");
+		var json = consumoApi.obterDados(endereco);
 		System.out.println(json);
 
 		var conversor = new ConverteDados();
 		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
 		System.out.println(dados);
+
+		json = consumoApi.obterDados(endereco);
+		DadosEpisodio dadosEpisodio = conversor.obterDados(json, DadosEpisodio.class);
+		System.out.println(dadosEpisodio);
 	}
 }
