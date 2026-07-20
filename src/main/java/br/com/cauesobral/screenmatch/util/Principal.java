@@ -1,5 +1,6 @@
 package br.com.cauesobral.screenmatch.util;
 
+import br.com.cauesobral.screenmatch.model.DadosEpisodio;
 import br.com.cauesobral.screenmatch.model.DadosSerie;
 import br.com.cauesobral.screenmatch.model.DadosTemporada;
 import br.com.cauesobral.screenmatch.service.ConsumoApi;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ExibeMenu {
+public class Principal {
 
     private Scanner leitura = new Scanner(System.in);
     private ConsumoApi consumo = new ConsumoApi();
