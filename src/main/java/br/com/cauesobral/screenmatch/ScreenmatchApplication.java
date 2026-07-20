@@ -37,5 +37,9 @@ public class ScreenmatchApplication implements CommandLineRunner {
 		json = consumoApi.obterDados(endereco);
 		DadosEpisodio dadosEpisodio = conversor.obterDados(json, DadosEpisodio.class);
 		System.out.println(dadosEpisodio);
+
+		for (int i = 1; i <= dados.totalTemporadas(); i++) {
+
+		}
 	}
 }
