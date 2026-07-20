@@ -36,7 +36,7 @@ interface OperacaoLista {
 }
 //O 6 saiu de primeira heinn (também a sintaxe é bem parecida com o 5)
 
-public class desafios {
+public class DesafiosLambda {
     public static void main(String[] args) {
         Operacao resultadoMultiplicacao = (a, b) -> a * b;
         System.out.println(resultadoMultiplicacao.operacao(5,2));
